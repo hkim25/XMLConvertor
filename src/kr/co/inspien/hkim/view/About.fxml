@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.co.inspien.hkim.controller.AboutController">
+   <children>
+      <ImageView fx:id="logo" fitHeight="57.0" fitWidth="242.0" layoutX="29.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="20.0" />
+      <Text layoutX="25.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact" AnchorPane.leftAnchor="25.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="25.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hongjoong.kim@inspien.co.kr" AnchorPane.leftAnchor="25.0">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="35.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="version 1.1 relesed 2023-05-02 " AnchorPane.leftAnchor="25.0">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="35.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version" AnchorPane.leftAnchor="25.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
