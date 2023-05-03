@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+<Properties>
+  <Property name="logNm">ProcessLog</Property>
+  <Property name="consoleLayout">%-5level %m%n</Property>
+  <Property name="fileLayout">%d %-5level %c{3}(%M:%L) - %m%n</Property>
+</Properties>
+<Appenders>
+  <Console name="console" target="SYSTEM_OUT">
+   <PatternLayout pattern="${consoleLayout}" />
+  </Console>
+  <RollingFile name="file" fileName="./resources/log/${logNm}.log" filePattern="./resources/log/backup/${logNm}_%d{yyyy-MM-dd}_%i.log">
+   <PatternLayout pattern="${fileLayout}" />
+   <Policies>
+    <SizeBasedTriggeringPolicy size="1024KB" />
+   </Policies>
+   <DefaultRolloverStrategy max="500" fileIndex="min" />
+  </RollingFile>
+ </Appenders>
+
+ <Loggers>
+ 
+  <Root level="debug" additivity="false" >
+   <AppenderRef ref="console" />
+   <AppenderRef ref="file" />
+  </Root>
+  
+  <logger name="kr.co.inspien.hkim" additivity="false" >
+   <AppenderRef ref="console" level="info"/>
+   <AppenderRef ref="file" level="debug"/>
+  </logger>
+
+ </Loggers>
+</Configuration>
