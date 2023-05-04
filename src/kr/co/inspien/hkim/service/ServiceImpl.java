@@ -73,6 +73,8 @@ public class ServiceImpl implements Service{
 					this.logger.info("error : " + e.getMessage());
 					result.setThrowable(e);
 				}
+			}else if(input.startsWith("[")){
+				result = convert("{\"row\":".concat(input).concat("}"));
 			}else {
 				this.logger.info("error : Invalid input data");
 				result.setThrowable(new Exception("Invalid input data."));
@@ -91,6 +93,10 @@ public class ServiceImpl implements Service{
 		}catch(JSONException e) {
 			if(input.startsWith("<")) {
 				result = prettyXml(input, 2, true, false);
+			}else if(input.startsWith("[")){
+				String wrapped = "{\"row\":".concat(input).concat("}");
+				String retried = prettyPrint(wrapped);
+				result = retried.equals(wrapped)?input:retried;
 			}else {
 				result = input;
 			}
