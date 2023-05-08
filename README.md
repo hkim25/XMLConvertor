@@ -1,6 +1,6 @@
 # XMLConvertor
 
-Version 1.1 released 2023-05-02
+Version 1.1.2 released 2023-05-08
 
 Java version 1.8
 
