@@ -1,10 +1,7 @@
 package kr.co.inspien.hkim.service;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
@@ -13,8 +10,6 @@ import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -102,37 +97,6 @@ public class ServiceImpl implements Service{
 			}
 		}
 		return result;
-	}
-	
-	public List<String> listFiles(Path path) {
-		List<String> result = new ArrayList<>();
-		File[] listOfFiles = path.toFile().listFiles();
-	    for (File file : listOfFiles) {
-	    	if(file.isDirectory()) {
-	    		continue;
-	    	}else if (file.isFile()) {
-	            result.add(file.getName());
-	        }
-	    }
-	    return result;
-	}
-	
-	public String fileToString(Path path) throws IOException {
-		return new String(Files.readAllBytes(path),StandardCharsets.UTF_8);
-	}
-	
-	public void writeTextFile(String data, Path path) throws IOException {
-		try(ByteArrayInputStream bais = new ByteArrayInputStream(data.getBytes());
-			FileOutputStream fos = new FileOutputStream(path.toString());
-			BufferedOutputStream bos = new BufferedOutputStream(fos);) {
-			int readCount = 0;
-			byte[] buffer = new byte[32];
-			while ((readCount = bais.read(buffer))!= -1){
-				bos.write(buffer, 0, readCount);
-			}
-		} catch (IOException e) {
-			throw e;
-		}
 	}
 	
 	public void alert(Stage oner, AlertType type, String title, String header, String content) {
